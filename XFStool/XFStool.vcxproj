@@ -33,8 +33,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
-    <IncludePath>E:\Qt\Qt5.12.2\5.12.2\msvc2017\include;E:\Qt\Qt5.12.2\5.12.2\msvc2017\include\QtWebChannel;E:\Qt\Qt5.12.2\5.12.2\msvc2017\include\QtWebSockets;E:\Qt\Qt5.12.2\5.12.2\msvc2017\include\QtNetwork;E:\Common\tools\XFS3.10\INCLUDE;E:\Linker\cxJsonModel\include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\Qt\Qt5.12.2\5.12.2\msvc2017\lib;E:\Common\tools\XFS3.10\LIB;E:\Linker\cxJsonModel\win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>E:\Qt\Qt5.12.2\5.12.2\msvc2017\include;E:\Qt\Qt5.12.2\5.12.2\msvc2017\include\QtWebChannel;E:\Qt\Qt5.12.2\5.12.2\msvc2017\include\QtWebSockets;E:\Qt\Qt5.12.2\5.12.2\msvc2017\include\QtNetwork;E:\Common\tools\XFS3.10\INCLUDE;E:\Linker\jsoncpp-1.8.3\include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\Qt\Qt5.12.2\5.12.2\msvc2017\lib;E:\Common\tools\XFS3.10\LIB;E:\Linker\jsoncpp-1.8.3\makefiles\MSVC2017\src\lib_json\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
     <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
@@ -89,7 +89,7 @@
       <PreprocessorDefinitions>UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_MULTIMEDIAWIDGETS_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtMultimediaWidgets;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat />
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
     </ClCompile>
     <Link>
@@ -97,7 +97,8 @@
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalDependencies>qtmain.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Multimedia.lib;Qt5MultimediaWidgets.lib;Qt5Networkd.lib;Qt5Widgets.lib;Qt5WebEngineWidgets.lib;Qt5WebChannel.lib;Qt5WebSockets.lib;msxfs.lib;xfs_conf.lib;xfs_supp.lib;cxJsonModel310.lib;iconv.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>qtmain.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Multimedia.lib;Qt5MultimediaWidgets.lib;Qt5Networkd.lib;Qt5Widgets.lib;Qt5WebEngineWidgets.lib;Qt5WebChannel.lib;Qt5WebSockets.lib;msxfs.lib;xfs_conf.lib;xfs_supp.lib;jsoncpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
     <QtMoc>
       <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>

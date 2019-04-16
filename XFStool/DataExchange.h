@@ -12,7 +12,7 @@ public:
 	DataExchange(QObject *parent = nullptr);
 	virtual ~DataExchange();
 
-	Q_INVOKABLE int jsToCpp(const QString &sMethod, const QString &sJsonIn);
+	Q_INVOKABLE HRESULT jsToCpp(const QString &sMethod, const QString &sJsonIn);
 
 
 	WSXFSLoader *m_XFSLoader;
